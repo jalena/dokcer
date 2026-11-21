@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       image:
-        description: 'Optional: single source image to sync (e.g. docker.io/library/mysql:8.4). Leave blank to sync all from images.yaml'
+        description: '可选：仅同步单个镜像（如 docker.io/library/mysql:8.4），留空则按 images.yaml 全量同步'
         required: false
         type: string
 
