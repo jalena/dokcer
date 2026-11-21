@@ -45,7 +45,7 @@ jobs:
           target="${TARGET_REGISTRY}/${name_tag}"
 
           echo "Mirroring single image: ${src} -> ${target}"
-          skopeo copy --all --retry-times 3 \
+          skopeo --override-arch amd64 --override-os linux copy --retry-times 3 \
             --dest-creds "cnb:${{ secrets.CNB_TOKEN }}" \
             "docker://${src}" \
             "docker://${target}"
@@ -55,10 +55,9 @@ jobs:
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.image == '' }}
         run: |
           set -euo pipefail
-          skopeo sync \
+          skopeo --override-arch amd64 --override-os linux sync \
             --src yaml \
             --dest docker \
-            --all \
             --retry-times 3 \
             --dest-creds "cnb:${{ secrets.CNB_TOKEN }}" \
             "${{ github.workspace }}/.github/images.yaml" \
