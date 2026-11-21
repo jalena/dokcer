@@ -1,36 +1,20 @@
-images:
-  - name: mysql
-    image: mysql
-    tag: 8
-
-  - name: nginx
-    image: nginx
-    tag: stable-alpine-perl
-
-  - name: redis
-    image: redis
-    tag: 7-alpine
-
-  - name: nacos-server
-    image: nacos/nacos-server
-    tag: v3.2.2-slim
-
-  - name: odoo
-    image: odoo
-    tag: latest
-
-  - name: postgres
-    image: postgres
-    tag: 18
-
-  - name: node
-    image: node
-    tag: 20-alpine
-
-  - name: certbot
-    image: certbot/certbot
-    tag: latest
-
-  - name: acme.sh
-    image: neilpang/acme.sh
-    tag: latest
+docker.io:
+  images:
+    library/mysql:
+      - "8"
+    library/nginx:
+      - "stable-alpine-perl"
+    library/redis:
+      - "7-alpine"
+    nacos/nacos-server:
+      - "v3.2.2-slim"
+    library/odoo:
+      - "latest"
+    library/postgres:
+      - "18"
+    library/node:
+      - "20-alpine"
+    certbot/certbot:
+      - "latest"
+    neilpang/acme.sh:
+      - "latest"
